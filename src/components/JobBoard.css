@@ -1,0 +1,61 @@
+.job-board-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.job-board-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.job-board-header h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.job-board-header .subtitle {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.feature-banner {
+  background: linear-gradient(135deg, #4a4de7 0%, #8a4fe7 100%);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.feature-banner p {
+  margin-bottom: 0.5rem;
+}
+
+.feature-banner p:first-child {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.see-how-button {
+  background-color: white;
+  color: #4a4de7;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: 500;
+  margin-top: 0.5rem;
+}
+
+.job-listings {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .job-listings {
+    grid-template-columns: 1fr;
+  }
+}

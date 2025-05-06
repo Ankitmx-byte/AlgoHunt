@@ -1,0 +1,669 @@
+.battles-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.battles-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.battles-header h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.battles-header p {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.battles-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.battles-tabs button {
+  padding: 0.8rem 1.5rem;
+  background-color: transparent;
+  border: none;
+  font-size: 1rem;
+  color: #666;
+  position: relative;
+}
+
+.battles-tabs button.active {
+  color: #4a4de7;
+  font-weight: 500;
+}
+
+.battles-tabs button.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #4a4de7;
+}
+
+.battles-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.battle-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.battle-info {
+  flex: 1;
+}
+
+.battle-info h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.battle-meta {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.battle-meta span {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.difficulty {
+  color: #ff9800;
+  font-weight: 500;
+}
+
+.battle-info p {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.battle-action {
+  margin-left: 2rem;
+}
+
+.register-btn, .join-btn, .view-btn {
+  padding: 0.7rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 500;
+  border: none;
+}
+
+.register-btn {
+  background-color: #4a4de7;
+  color: white;
+}
+
+.join-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.view-btn {
+  background-color: #f0f2f5;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .battle-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .battle-action {
+    margin-left: 0;
+    margin-top: 1rem;
+    width: 100%;
+  }
+  
+  .register-btn, .join-btn, .view-btn {
+    width: 100%;
+  }
+}
+
+/* Add these new styles for tournaments */
+
+.section-toggle {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.section-toggle button {
+  padding: 0.8rem 2rem;
+  background-color: #f0f2f5;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.section-toggle button.active {
+  background-color: #4a4de7;
+  color: white;
+}
+
+.tournament-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.tournament-header h2 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.tournament-header p {
+  color: #666;
+  font-size: 1rem;
+}
+
+.tournaments-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.tournaments-tabs button {
+  padding: 0.8rem 1.5rem;
+  background-color: transparent;
+  border: none;
+  font-size: 1rem;
+  color: #666;
+  position: relative;
+}
+
+.tournaments-tabs button.active {
+  color: #4a4de7;
+  font-weight: 500;
+}
+
+.tournaments-tabs button.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #4a4de7;
+}
+
+.tournaments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.tournament-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1.8rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border: 1px solid #f0f2f5;
+}
+
+.tournament-header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.tournament-header-section h3 {
+  font-size: 1.4rem;
+  color: #333;
+  margin: 0;
+}
+
+.tournament-prize {
+  background-color: #fef9e7;
+  color: #f39c12;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.tournament-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-bottom: 1.2rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid #f0f2f5;
+}
+
+.tournament-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.meta-label {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.meta-value {
+  font-size: 0.95rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.meta-value.difficulty {
+  color: #ff9800;
+}
+
+.tournament-description {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.ai-match-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  background-color: #f0f7ff;
+  padding: 0.8rem 1rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+}
+
+.ai-icon {
+  font-size: 1.2rem;
+}
+
+.ai-match-text {
+  font-size: 0.95rem;
+  color: #2980b9;
+}
+
+.tournament-action {
+  display: flex;
+  gap: 1rem;
+}
+
+.register-tournament-btn, .details-btn {
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.register-tournament-btn {
+  background-color: #4a4de7;
+  color: white;
+  flex: 1;
+}
+
+.register-tournament-btn:hover {
+  background-color: #3a3dcc;
+}
+
+.details-btn {
+  background-color: #f0f2f5;
+  color: #333;
+}
+
+.details-btn:hover {
+  background-color: #e0e2e5;
+}
+
+@media (max-width: 768px) {
+  .tournament-header-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+  
+  .tournament-meta {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  
+  .tournament-action {
+    flex-direction: column;
+  }
+}
+
+/* Add these new styles for 1v1 battles */
+
+.one-vs-one-banner {
+  background: linear-gradient(135deg, #4a4de7 0%, #6e71ff 100%);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(74, 77, 231, 0.2);
+}
+
+.banner-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.banner-text h3 {
+  color: white;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.banner-text p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+}
+
+.find-opponent-btn {
+  background-color: white;
+  color: #4a4de7;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.find-opponent-btn:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  transform: translateY(-2px);
+}
+
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.one-vs-one-modal {
+  background-color: white;
+  border-radius: 8px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 550px;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.close-modal {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #666;
+  cursor: pointer;
+}
+
+.one-vs-one-modal h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.modal-subtitle {
+  color: #666;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.matchmaking-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.option-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.option-group label {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.option-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.option-buttons button {
+  flex: 1;
+  padding: 0.7rem;
+  border: 1px solid #e0e0e0;
+  background-color: #f5f5f5;
+  color: #666;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.option-buttons button.active {
+  background-color: #4a4de7;
+  color: white;
+  border-color: #4a4de7;
+}
+
+.start-matchmaking-btn {
+  width: 100%;
+  padding: 0.9rem;
+  background-color: #4a4de7;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.start-matchmaking-btn:hover {
+  background-color: #3a3dcc;
+}
+
+/* Matchmaking progress */
+.matchmaking-progress {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(74, 77, 231, 0.1);
+  border-radius: 50%;
+  border-top-color: #4a4de7;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1.5rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.matchmaking-progress h3 {
+  font-size: 1.3rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.matchmaking-progress p {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+/* Match found */
+.match-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.match-found h3 {
+  font-size: 1.3rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.opponent-card {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background-color: #f9f9f9;
+  padding: 1.2rem;
+  border-radius: 8px;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.opponent-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.opponent-info {
+  flex: 1;
+}
+
+.opponent-info h4 {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.opponent-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.stat-value {
+  font-size: 0.9rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.ai-match-indicator.match-modal {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.match-actions {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+}
+
+.accept-match-btn, .decline-match-btn {
+  padding: 0.8rem;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.accept-match-btn {
+  flex: 2;
+  background-color: #4a4de7;
+  color: white;
+  border: none;
+}
+
+.accept-match-btn:hover {
+  background-color: #3a3dcc;
+}
+
+.decline-match-btn {
+  flex: 1;
+  background-color: #f0f2f5;
+  color: #666;
+  border: 1px solid #e0e0e0;
+}
+
+.decline-match-btn:hover {
+  background-color: #e0e2e5;
+}
+
+@media (max-width: 768px) {
+  .banner-content {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .opponent-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .opponent-stats {
+    justify-content: center;
+  }
+  
+  .match-actions {
+    flex-direction: column;
+  }
+}
+
