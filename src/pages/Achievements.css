@@ -15,6 +15,20 @@
   margin-bottom: 0.5rem;
 }
 
+.animated-gradient {
+  background: linear-gradient(90deg, #4a4de7, #6366f1, #4a4de7);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: gradientAnimation 3s linear infinite;
+}
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
 .achievements-header p {
   color: #666;
   font-size: 1.1rem;
@@ -47,11 +61,40 @@
   color: #4a4de7;
 }
 
-.badges-section, .certificates-section {
+.achievements-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.achievements-tabs button {
+  padding: 0.8rem 2rem;
+  background-color: #f0f2f5;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.achievements-tabs button:hover {
+  background-color: #e4e6e9;
+  transform: translateY(-2px);
+}
+
+.achievements-tabs button.active {
+  background-color: #4a4de7;
+  color: white;
+}
+
+.badges-section, .certificates-section, .tasks-section {
   margin-bottom: 3rem;
 }
 
-.badges-section h2, .certificates-section h2 {
+.badges-section h2, .certificates-section h2, .tasks-section h2 {
   font-size: 1.8rem;
   color: #333;
   margin-bottom: 1.5rem;
@@ -160,4 +203,213 @@
   background-color: transparent;
   border: 1px solid #4a4de7;
   color: #4a4de7;
+}
+
+/* Tasks Section Styles */
+.tasks-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.tasks-filter select {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  background-color: white;
+  cursor: pointer;
+}
+
+.tasks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.task-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.task-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.task-category {
+  background-color: #e6f7ff;
+  color: #0066cc;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.task-deadline {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.task-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.task-description {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.task-reward {
+  background-color: #fff8e6;
+  padding: 0.8rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: #b78105;
+}
+
+.reward-label {
+  font-weight: 600;
+  margin-right: 0.3rem;
+}
+
+.task-progress-container {
+  margin-bottom: 1.2rem;
+}
+
+.task-progress-bar {
+  height: 8px;
+  background-color: #f0f2f5;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.task-progress-fill {
+  height: 100%;
+  background-color: #4a4de7;
+  border-radius: 4px;
+}
+
+.task-progress-text {
+  font-size: 0.8rem;
+  color: #666;
+  display: block;
+  text-align: right;
+}
+
+.task-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.start-task-btn, .continue-task-btn, .claim-reward-btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.start-task-btn {
+  background-color: #4a4de7;
+  color: white;
+}
+
+.start-task-btn:hover {
+  background-color: #3a3dcc;
+}
+
+.continue-task-btn {
+  background-color: #4a4de7;
+  color: white;
+}
+
+.continue-task-btn:hover {
+  background-color: #3a3dcc;
+}
+
+.claim-reward-btn {
+  background-color: #f5a623;
+  color: white;
+}
+
+.claim-reward-btn:hover {
+  background-color: #e09612;
+}
+
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
+  opacity: 0;
+  transform: scale(1.5);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.btn-primary:hover .btn-glow {
+  opacity: 0.3;
+  transform: scale(1);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .achievements-tabs {
+    flex-wrap: wrap;
+  }
+
+  .achievements-tabs button {
+    flex: 1 0 auto;
+    padding: 0.8rem 1rem;
+  }
+
+  .tasks-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .tasks-filter select {
+    width: 100%;
+  }
+
+  .task-header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .task-actions {
+    justify-content: center;
+  }
+
+  .start-task-btn, .continue-task-btn, .claim-reward-btn {
+    width: 100%;
+  }
 }

@@ -1,0 +1,328 @@
+.premium-code-editor {
+  width: 100%;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  box-shadow: var(--shadow-lg);
+  transition: all 0.3s ease;
+  animation: float 6s ease-in-out infinite;
+}
+
+.premium-code-editor:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Editor themes */
+.premium-code-editor-dark {
+  background-color: #1e1e3f;
+  color: #e0e0e0;
+}
+
+.premium-code-editor-light {
+  background-color: #f8f8f8;
+  color: #333333;
+}
+
+.premium-code-editor-monokai {
+  background-color: #272822;
+  color: #f8f8f2;
+}
+
+.premium-code-editor-dracula {
+  background-color: #282a36;
+  color: #f8f8f2;
+}
+
+.premium-code-editor-nord {
+  background-color: #2e3440;
+  color: #d8dee9;
+}
+
+/* Editor header */
+.premium-code-editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.premium-code-editor-light .premium-code-editor-header {
+  border-bottom-color: rgba(0, 0, 0, 0.1);
+}
+
+.premium-code-editor-controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.premium-code-editor-control {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.premium-code-editor-control-close {
+  background-color: #ff5f56;
+}
+
+.premium-code-editor-control-minimize {
+  background-color: #ffbd2e;
+}
+
+.premium-code-editor-control-maximize {
+  background-color: #27c93f;
+}
+
+.premium-code-editor-title {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.75rem;
+}
+
+.premium-code-editor-light .premium-code-editor-title {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+/* Editor content */
+.premium-code-editor-content {
+  padding: 1rem;
+  max-height: 500px;
+  overflow-y: auto;
+  position: relative;
+}
+
+.premium-code-editor-editable {
+  outline: none;
+}
+
+/* Code lines */
+.code-line {
+  display: flex;
+  white-space: pre;
+  padding: 0.125rem 0;
+  transition: background-color 0.3s ease;
+}
+
+.code-line-highlighted {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 0.25rem;
+  animation: pulse 1.5s infinite;
+}
+
+.premium-code-editor-light .code-line-highlighted {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.code-line-number {
+  color: rgba(255, 255, 255, 0.3);
+  text-align: right;
+  padding-right: 1rem;
+  user-select: none;
+  min-width: 2rem;
+}
+
+.premium-code-editor-light .code-line-number {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.code-line-content {
+  flex: 1;
+}
+
+/* Syntax highlighting - Dark theme */
+.premium-code-editor-dark .code-keyword {
+  color: #ff9d00;
+}
+
+.premium-code-editor-dark .code-string {
+  color: #a5ff90;
+}
+
+.premium-code-editor-dark .code-number {
+  color: #ff628c;
+}
+
+.premium-code-editor-dark .code-operator {
+  color: #ff9d00;
+}
+
+.premium-code-editor-dark .code-comment {
+  color: #7676b3;
+  font-style: italic;
+}
+
+/* Syntax highlighting - Light theme */
+.premium-code-editor-light .code-keyword {
+  color: #0000ff;
+}
+
+.premium-code-editor-light .code-string {
+  color: #008000;
+}
+
+.premium-code-editor-light .code-number {
+  color: #ff0000;
+}
+
+.premium-code-editor-light .code-operator {
+  color: #0000ff;
+}
+
+.premium-code-editor-light .code-comment {
+  color: #808080;
+  font-style: italic;
+}
+
+/* Syntax highlighting - Monokai theme */
+.premium-code-editor-monokai .code-keyword {
+  color: #f92672;
+}
+
+.premium-code-editor-monokai .code-string {
+  color: #e6db74;
+}
+
+.premium-code-editor-monokai .code-number {
+  color: #ae81ff;
+}
+
+.premium-code-editor-monokai .code-operator {
+  color: #f92672;
+}
+
+.premium-code-editor-monokai .code-comment {
+  color: #75715e;
+  font-style: italic;
+}
+
+/* Syntax highlighting - Dracula theme */
+.premium-code-editor-dracula .code-keyword {
+  color: #ff79c6;
+}
+
+.premium-code-editor-dracula .code-string {
+  color: #f1fa8c;
+}
+
+.premium-code-editor-dracula .code-number {
+  color: #bd93f9;
+}
+
+.premium-code-editor-dracula .code-operator {
+  color: #ff79c6;
+}
+
+.premium-code-editor-dracula .code-comment {
+  color: #6272a4;
+  font-style: italic;
+}
+
+/* Syntax highlighting - Nord theme */
+.premium-code-editor-nord .code-keyword {
+  color: #81a1c1;
+}
+
+.premium-code-editor-nord .code-string {
+  color: #a3be8c;
+}
+
+.premium-code-editor-nord .code-number {
+  color: #b48ead;
+}
+
+.premium-code-editor-nord .code-operator {
+  color: #81a1c1;
+}
+
+.premium-code-editor-nord .code-comment {
+  color: #4c566a;
+  font-style: italic;
+}
+
+/* Cursor */
+.code-cursor {
+  display: inline-block;
+  color: #fff;
+  font-weight: bold;
+  animation: blink 0.8s step-end infinite;
+}
+
+.premium-code-editor-light .code-cursor {
+  color: #000;
+}
+
+/* Scrollbar styling */
+.premium-code-editor-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.premium-code-editor-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.premium-code-editor-content::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.premium-code-editor-light .premium-code-editor-content::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.premium-code-editor-light .premium-code-editor-content::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Animations */
+@keyframes blink {
+  from, to {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+  50% {
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+  100% {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+}
+
+.premium-code-editor-light .code-line-highlighted {
+  animation: pulseLight 1.5s infinite;
+}
+
+@keyframes pulseLight {
+  0% {
+    background-color: rgba(0, 0, 0, 0.03);
+  }
+  50% {
+    background-color: rgba(0, 0, 0, 0.08);
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0.03);
+  }
+}
