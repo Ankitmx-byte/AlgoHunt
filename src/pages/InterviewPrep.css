@@ -1,0 +1,679 @@
+.interview-prep-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.interview-tabs {
+  display: flex;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.interview-tabs button {
+  padding: 1rem 2rem;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: #495057;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.interview-tabs button:hover {
+  color: #4a4de7;
+}
+
+.interview-tabs button.active {
+  color: #4a4de7;
+  font-weight: 500;
+}
+
+.interview-tabs button.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #4a4de7;
+}
+
+.dashboard-description {
+  color: #6c757d;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Interview List Styles */
+.interview-list {
+  margin-top: 2rem;
+}
+
+.interview-list h3 {
+  margin-bottom: 1.5rem;
+  color: #343a40;
+}
+
+.interview-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.interview-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.interview-card-header {
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.interview-card-header h4 {
+  margin: 0;
+  color: #343a40;
+  font-size: 1.2rem;
+}
+
+.interview-type {
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.interview-type.technical {
+  background-color: #e6f7ff;
+  color: #0066cc;
+}
+
+.interview-type.behavioral {
+  background-color: #e6ffe6;
+  color: #008800;
+}
+
+.interview-type.mixed {
+  background-color: #fff3e6;
+  color: #cc6600;
+}
+
+.interview-type.system {
+  background-color: #f0e6ff;
+  color: #6600cc;
+}
+
+.interview-type.coding {
+  background-color: #ffe6e6;
+  color: #cc0000;
+}
+
+.interview-card-details {
+  padding: 1.5rem;
+}
+
+.interview-card-details p {
+  margin: 0.5rem 0;
+  color: #495057;
+}
+
+.interview-card-actions {
+  padding: 1.5rem;
+  border-top: 1px solid #e9ecef;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+.anti-cheat-badge {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.badge {
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background-color: #ffd700;
+  color: #333;
+}
+
+/* Interview Session Styles */
+.interview-session {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.session-header {
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.session-header h2 {
+  margin: 0;
+  color: #343a40;
+}
+
+.question-counter {
+  padding: 0.5rem 1rem;
+  background-color: #e9ecef;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #495057;
+}
+
+.session-content {
+  display: flex;
+  padding: 1.5rem;
+}
+
+.video-container {
+  flex: 1;
+  position: relative;
+  margin-right: 1.5rem;
+  min-height: 240px;
+  background-color: #000;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.camera-permission-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.camera-permission-btn {
+  background-color: #4a4de7;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.camera-permission-btn:hover {
+  background-color: #3a3db7;
+}
+
+video {
+  width: 100%;
+  border-radius: 8px;
+  background-color: #000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+video.recording {
+  border: 3px solid #dc3545;
+}
+
+.recording-indicator {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.3rem 0.8rem;
+  background-color: #dc3545;
+  color: white;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.question-container {
+  flex: 1;
+}
+
+.question-card {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.question-category {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-bottom: 0.5rem;
+}
+
+.question-text {
+  font-size: 1.2rem;
+  color: #343a40;
+  margin-bottom: 1.5rem;
+}
+
+.question-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #4a4de7;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.feedback-container {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-container h3 {
+  margin-top: 0;
+  color: #343a40;
+  margin-bottom: 1.5rem;
+}
+
+.feedback-scores {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.feedback-score {
+  text-align: center;
+  flex: 1;
+  min-width: 80px;
+  margin-bottom: 1rem;
+}
+
+.score-label {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-bottom: 0.5rem;
+}
+
+.score-value {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #4a4de7;
+}
+
+.feedback-details {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.feedback-section {
+  flex: 1;
+}
+
+.feedback-section h4 {
+  margin-top: 0;
+  color: #343a40;
+  margin-bottom: 1rem;
+}
+
+.feedback-section ul {
+  padding-left: 1.5rem;
+  margin: 0;
+}
+
+.feedback-section li {
+  margin-bottom: 0.5rem;
+  color: #495057;
+}
+
+.next-question-btn {
+  width: 100%;
+  padding: 1rem;
+}
+
+.end-session-btn {
+  margin: 1.5rem;
+}
+
+/* Battle Mode Styles */
+.btn-battle {
+  background-color: #ff4757;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.btn-battle:hover {
+  background-color: #ff6b81;
+}
+
+.battle-info {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.battle-opponent {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.opponent-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #e9ecef;
+}
+
+.battle-score {
+  display: flex;
+  gap: 1rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.battle-timer {
+  padding: 0.3rem 0.8rem;
+  background-color: #e9ecef;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+/* Practice Mode Styles */
+.practice-info {
+  background-color: #e6f7ff;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.practice-timer {
+  font-weight: bold;
+  color: #0066cc;
+}
+
+.activity-capture-indicator {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.3rem 0.8rem;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  animation: pulse 1.5s infinite;
+}
+
+/* Settings Styles */
+.interview-settings {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+}
+
+.settings-description {
+  color: #6c757d;
+  margin-bottom: 2rem;
+}
+
+.settings-section {
+  margin-bottom: 2rem;
+}
+
+.settings-section h3 {
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e9ecef;
+  color: #343a40;
+}
+
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid #f8f9fa;
+}
+
+.setting-info {
+  flex: 1;
+}
+
+.setting-info h4 {
+  margin: 0 0 0.5rem 0;
+  color: #343a40;
+}
+
+.setting-info p {
+  margin: 0;
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+.setting-control {
+  margin-left: 1rem;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 24px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .toggle-slider {
+  background-color: #4a4de7;
+}
+
+input:checked + .toggle-slider:before {
+  transform: translateX(26px);
+}
+
+.anti-cheat-logs {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.logs-list {
+  max-height: 200px;
+  overflow-y: auto;
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.log-item {
+  padding: 0.5rem;
+  border-bottom: 1px solid #e9ecef;
+  font-size: 0.9rem;
+}
+
+.log-time {
+  color: #6c757d;
+  margin-right: 0.5rem;
+}
+
+.log-message {
+  color: #343a40;
+}
+
+.camera-preview-container {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.camera-preview {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.camera-status {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.camera-status.success {
+  color: #28a745;
+}
+
+.camera-status.error {
+  color: #dc3545;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.feedback-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.feedback-actions .btn {
+  flex: 1;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .interview-prep-container {
+    padding: 1rem;
+  }
+
+  .interview-tabs button {
+    padding: 1rem;
+  }
+
+  .session-content {
+    flex-direction: column;
+  }
+
+  .video-container {
+    margin-right: 0;
+    margin-bottom: 1.5rem;
+  }
+
+  .feedback-details {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}

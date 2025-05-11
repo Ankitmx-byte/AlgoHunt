@@ -1,0 +1,184 @@
+.animated-text {
+  display: inline-block;
+  position: relative;
+}
+
+/* Text variants */
+.animated-text-gradient {
+  background: linear-gradient(135deg, var(--primary-500), var(--secondary-500), var(--accent-500));
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradientFlow 8s ease infinite;
+}
+
+.animated-text-glow {
+  color: white;
+  text-shadow: 0 0 10px var(--primary-500), 0 0 20px var(--primary-400), 0 0 30px var(--primary-300);
+  animation: textGlow 2s ease-in-out infinite alternate;
+}
+
+.animated-text-outline {
+  -webkit-text-stroke: 1px var(--primary-500);
+  color: transparent;
+}
+
+.animated-text-shadow {
+  text-shadow: 3px 3px 0 var(--primary-700);
+}
+
+.animated-text-neon {
+  color: white;
+  text-shadow: 
+    0 0 5px var(--primary-300),
+    0 0 10px var(--primary-400),
+    0 0 15px var(--primary-500),
+    0 0 20px var(--primary-600),
+    0 0 25px var(--primary-700);
+  animation: neonPulse 1.5s ease-in-out infinite alternate;
+}
+
+.animated-text-rainbow {
+  background: linear-gradient(
+    to right,
+    #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff
+  );
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: rainbowFlow 6s linear infinite;
+}
+
+.animated-text-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--primary-500) 0%,
+    var(--secondary-400) 20%,
+    var(--primary-500) 40%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmerFlow 3s linear infinite;
+}
+
+/* Animation types */
+.animated-text-typing .animated-text-content {
+  display: inline-block;
+  white-space: pre-wrap;
+}
+
+.animated-text-cursor .animated-text-cursor-symbol {
+  display: inline-block;
+  animation: cursorBlink 1s step-end infinite;
+}
+
+.animated-text-word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.animated-text-word-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animated-text-letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.animated-text-letter-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animated-text-fade-in {
+  animation: textFadeIn 1s ease forwards;
+}
+
+/* Keyframes */
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes textGlow {
+  0% {
+    text-shadow: 0 0 10px var(--primary-500), 0 0 20px var(--primary-400), 0 0 30px var(--primary-300);
+  }
+  100% {
+    text-shadow: 0 0 15px var(--primary-500), 0 0 30px var(--primary-400), 0 0 45px var(--primary-300);
+  }
+}
+
+@keyframes neonPulse {
+  0% {
+    text-shadow: 
+      0 0 5px var(--primary-300),
+      0 0 10px var(--primary-400),
+      0 0 15px var(--primary-500),
+      0 0 20px var(--primary-600),
+      0 0 25px var(--primary-700);
+  }
+  100% {
+    text-shadow: 
+      0 0 10px var(--primary-300),
+      0 0 20px var(--primary-400),
+      0 0 30px var(--primary-500),
+      0 0 40px var(--primary-600),
+      0 0 50px var(--primary-700);
+  }
+}
+
+@keyframes rainbowFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+@keyframes shimmerFlow {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes cursorBlink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes textFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

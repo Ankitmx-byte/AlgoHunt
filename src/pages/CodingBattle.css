@@ -1,4 +1,619 @@
-.matchmaking-modal-overlay {
+/* Battle Container */
+.battle-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Battle Header */
+.battle-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.problem-info {
+  flex: 2;
+}
+
+.problem-info h2 {
+  margin: 0 0 5px 0;
+  font-size: 1.8rem;
+  color: #343a40;
+}
+
+.problem-meta {
+  display: flex;
+  gap: 10px;
+}
+
+.difficulty {
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.difficulty.easy {
+  background-color: #d4edda;
+  color: #28a745;
+}
+
+.difficulty.medium {
+  background-color: #fff3cd;
+  color: #ffc107;
+}
+
+.difficulty.hard {
+  background-color: #f8d7da;
+  color: #dc3545;
+}
+
+.category {
+  padding: 4px 10px;
+  border-radius: 4px;
+  background-color: #e9ecef;
+  color: #495057;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.battle-timer {
+  background-color: #f8f9fa;
+  padding: 8px 15px;
+  border-radius: 4px;
+  font-weight: 500;
+  color: #343a40;
+  font-size: 1.1rem;
+}
+
+/* Anti-Cheat Toggle */
+.anti-cheat-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #f8f9fa;
+  padding: 8px 15px;
+  border-radius: 4px;
+}
+
+.toggle-label {
+  font-size: 0.9rem;
+  color: #495057;
+  font-weight: 500;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 20px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .toggle-slider {
+  background-color: #4a4de7;
+}
+
+input:checked + .toggle-slider:before {
+  transform: translateX(20px);
+}
+
+.battle-status {
+  flex: 1;
+  min-width: 250px;
+}
+
+.progress-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.user-progress, .opponent-progress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.progress-label {
+  width: 80px;
+  font-weight: 500;
+  color: #343a40;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 10px;
+  background-color: #e9ecef;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(45deg, #007bff, #0069d9);
+  border-radius: 5px;
+  transition: width 0.5s ease;
+}
+
+.opponent-progress .progress-fill {
+  background: linear-gradient(45deg, #6c757d, #495057);
+}
+
+.progress-percent {
+  width: 40px;
+  text-align: right;
+  font-weight: 500;
+  color: #343a40;
+}
+
+/* Battle Content */
+.battle-content {
+  display: flex;
+  gap: 20px;
+  height: calc(100vh - 250px);
+  min-height: 500px;
+}
+
+.problem-panel {
+  flex: 1;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 45%;
+}
+
+.problem-description {
+  padding: 20px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.problem-description h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #343a40;
+}
+
+.problem-description p {
+  line-height: 1.6;
+  color: #495057;
+  white-space: pre-line;
+}
+
+.test-cases {
+  padding: 20px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.test-cases h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #343a40;
+}
+
+.test-cases-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.test-case {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 6px;
+  border-left: 4px solid #007bff;
+}
+
+.test-case-input, .test-case-output {
+  margin-bottom: 8px;
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-size: 0.9rem;
+}
+
+.opponent-info {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  background-color: #f8f9fa;
+  border-radius: 0 0 8px 8px;
+  margin-top: auto;
+}
+
+.opponent-details p {
+  margin: 3px 0;
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+/* Editor Panel */
+.editor-panel {
+  flex: 1.5;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.language-selector {
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid #ced4da;
+  background-color: white;
+  color: #495057;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.editor-actions-top {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.editor-actions-top button {
+  padding: 8px 12px;
+  font-size: 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.editor-actions-top button:hover {
+  background-color: #e9ecef;
+}
+
+.editor-actions-top button:active {
+  background-color: #d1d5db;
+}
+
+/* Editor */
+.editor {
+  flex: 1;
+  background-color: #1e1e1e;
+  color: #d4d4d4;
+  font-family: 'Fira Code', monospace;
+  font-size: 1rem;
+  padding: 10px;
+  border: 1px solid #333;
+  border-radius: 0 0 8px 8px;
+  overflow: auto;
+}
+
+.editor-container {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #333;
+}
+
+.code-textarea {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  font-family: 'Consolas', 'Monaco', monospace;
+  padding: 15px;
+  font-size: 14px;
+  background-color: #1e1e1e;
+  color: #d4d4d4;
+  border: none;
+  resize: none;
+  line-height: 1.5;
+  outline: none;
+  tab-size: 2;
+}
+
+/* Editor Actions Bottom */
+.editor-actions-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+}
+
+/* Editor Footer */
+.editor-footer {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+}
+
+.test-results {
+  margin-bottom: 15px;
+}
+
+.results-container {
+  background-color: white;
+  border-radius: 6px;
+  padding: 15px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.results-container h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #343a40;
+  font-size: 1.1rem;
+}
+
+.results-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.result-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.result-item.passed {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.result-item.failed {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.result-icon {
+  margin-right: 10px;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.editor-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+  justify-content: flex-end;
+}
+
+/* Run Button */
+.run-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-weight: 500;
+}
+
+.run-button:hover {
+  background-color: #218838;
+}
+
+.run-button:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Hint Button */
+.hint-button {
+  background-color: #17a2b8;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-weight: 500;
+}
+
+.hint-button:hover {
+  background-color: #138496;
+}
+
+/* AI Insights Button */
+.insights-button {
+  background-color: #6f42c1;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-weight: 500;
+}
+
+.insights-button:hover {
+  background-color: #5e35b1;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(40, 167, 69, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(40, 167, 69, 0);
+  }
+}
+
+/* Practice Mode Button */
+.practice-mode-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #28a745;
+  color: white;
+  border: 2px solid #fff;
+  border-radius: 50px;
+  padding: 15px 25px;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  animation: pulse 2s infinite;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.practice-mode-button::before {
+  content: "🏋️";
+  font-size: 20px;
+}
+
+.practice-mode-button:hover {
+  background-color: #218838;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsive styles for practice mode button */
+@media (max-width: 768px) {
+  .practice-mode-button {
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+
+  .practice-mode-button::before {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .practice-mode-button {
+    bottom: 15px;
+    right: 15px;
+    padding: 10px 16px;
+    font-size: 0;  /* Hide text on very small screens */
+    border-radius: 50%;  /* Make it circular */
+    width: 50px;
+    height: 50px;
+    justify-content: center;
+  }
+
+  .practice-mode-button::before {
+    font-size: 24px;
+    margin: 0;
+  }
+}
+
+/* Banner */
+.coding-battle-container::before {
+  content: "Click the green 'PRACTICE MODE' button to start practicing!";
+  display: block;
+  background-color: #28a745;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Practice Mode Banner */
+.practice-mode-banner {
+  background-color: #28a745;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.practice-mode-banner::before {
+  content: "🏋️";
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+/* Modal Overlay */
+.modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -9,268 +624,234 @@
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  animation: fadeIn 0.3s ease;
 }
 
-.matchmaking-modal {
-  background-color: #fff;
+.modal-content {
+  background-color: white;
   border-radius: 8px;
+  padding: 25px;
   width: 90%;
   max-width: 600px;
-  padding: 2rem;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
 }
 
-.modal-subtitle {
-  color: #666;
-  margin-bottom: 1.5rem;
+/* Warning Modal Styles */
+.warning-modal {
+  border-left: 5px solid #dc3545;
 }
 
-.matchmaking-options {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
+.warning-modal h3 {
+  color: #dc3545;
+  margin-top: 0;
 }
 
-.option-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+.warning-list {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
 }
 
-.option-group label {
+.warning-list li {
+  margin-bottom: 0.5rem;
+  color: #495057;
+}
+
+.warning-note {
   font-weight: 500;
-  color: #333;
-}
-
-.option-buttons {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.option-buttons button {
-  flex: 1;
-  padding: 0.75rem;
-  background-color: #f0f0f0;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.option-buttons button.active {
-  background-color: #4a4de7;
-  color: white;
-  border-color: #4a4de7;
-}
-
-.language-select {
-  width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  background-color: #f9f9f9;
-}
-
-.ai-matchmaking-info {
-  display: flex;
-  align-items: center;
-  background-color: #f0f7ff;
-  border: 1px solid #d0e3ff;
-  border-radius: 6px;
-  padding: 1rem;
+  color: #dc3545;
   margin-bottom: 1.5rem;
 }
 
-.ai-icon {
-  font-size: 2rem;
-  margin-right: 1rem;
+.warning-btn {
+  background-color: #dc3545 !important;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
 }
 
-.ai-info-text p {
-  margin: 0.25rem 0;
-  font-size: 0.9rem;
-  color: #555;
+.warning-btn:hover {
+  background-color: #c82333 !important;
 }
 
-.start-matchmaking-btn {
-  width: 100%;
-  padding: 0.9rem;
-  background-color: #4a4de7;
+.modal-content h3 {
+  margin-top: 0;
+  color: #343a40;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #e9ecef;
+  padding-bottom: 10px;
+}
+
+.modal-content p {
+  line-height: 1.6;
+  color: #495057;
+  margin-bottom: 15px;
+}
+
+.close-modal {
+  background-color: #6c757d;
   color: white;
   border: none;
   border-radius: 4px;
-  font-weight: 500;
+  padding: 8px 16px;
+  font-size: 0.9rem;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: background-color 0.3s;
+  margin-top: 10px;
+  float: right;
 }
 
-.start-matchmaking-btn:hover {
-  background-color: #3a3dcc;
+.close-modal:hover {
+  background-color: #5a6268;
 }
 
-.matchmaking-progress {
+/* Hint Steps */
+.hint-steps {
+  background-color: #f8f9fa;
+  border-radius: 6px;
+  padding: 15px 15px 15px 35px;
+  margin: 15px 0;
+}
+
+.hint-steps ol {
+  margin: 0;
+  padding: 0;
+}
+
+.hint-steps li {
+  margin-bottom: 8px;
+  color: #495057;
+}
+
+/* Solution Analysis */
+.solution-analysis {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 1rem 0;
+  gap: 15px;
+  margin: 15px 0;
 }
 
-.spinner {
-  width: 50px;
-  height: 50px;
-  border: 4px solid rgba(74, 77, 231, 0.1);
-  border-radius: 50%;
-  border-top-color: #4a4de7;
-  animation: spin 1s linear infinite;
-  margin-bottom: 1.5rem;
+.analysis-item {
+  background-color: #f8f9fa;
+  border-radius: 6px;
+  padding: 15px;
 }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+.analysis-item strong {
+  display: block;
+  margin-bottom: 8px;
+  color: #343a40;
 }
 
-.matchmaking-steps {
-  width: 100%;
-  margin-top: 2rem;
+.analysis-item ul {
+  margin: 0;
+  padding-left: 20px;
 }
 
-.step {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1rem;
-  opacity: 0.5;
+.analysis-item li {
+  margin-bottom: 5px;
+  color: #495057;
 }
 
-.step.active {
-  opacity: 1;
-}
-
-.step.completed {
-  opacity: 1;
-}
-
-.step-number {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background-color: #ddd;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 1rem;
-  font-weight: bold;
-}
-
-.step.active .step-number {
-  background-color: #4a4de7;
-  color: white;
-}
-
-.step.completed .step-number {
-  background-color: #4CAF50;
-  color: white;
-}
-
-.match-found {
-  text-align: center;
-}
-
-.opponent-card {
-  display: flex;
-  align-items: center;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  padding: 1rem;
-  margin: 1.5rem 0;
-}
-
-.opponent-avatar {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-right: 1rem;
-  border: 3px solid #4a4de7;
-}
-
-.opponent-info {
-  text-align: left;
-  flex: 1;
-}
-
-.opponent-info h4 {
-  margin: 0 0 0.5rem 0;
+/* Code Example */
+.modal-content h4 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #343a40;
   font-size: 1.2rem;
 }
 
-.opponent-stats {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-
-.stat {
-  font-size: 0.9rem;
-}
-
-.stat-label {
-  color: #666;
-  margin-right: 0.25rem;
-}
-
-.stat-value {
-  font-weight: 500;
-  color: #333;
-}
-
-.battle-details {
-  display: flex;
-  justify-content: space-between;
-  background-color: #f0f0f0;
+.code-example {
+  background-color: #1e1e1e;
+  color: #d4d4d4;
   border-radius: 6px;
-  padding: 1rem;
-  margin-bottom: 1.5rem;
+  padding: 15px;
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  overflow-x: auto;
+  margin: 15px 0;
+  white-space: pre;
 }
 
-.detail-item {
+/* Battle Result Modal */
+.battle-result {
   text-align: center;
 }
 
-.detail-label {
-  display: block;
-  font-size: 0.8rem;
-  color: #666;
-  margin-bottom: 0.25rem;
+.result-stats {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
 }
 
-.detail-value {
-  font-weight: 500;
-  color: #333;
+.result-stats .stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.ai-match-indicator {
+.stat-label {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-bottom: 5px;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #343a40;
+}
+
+.result-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.result-actions button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.result-actions button:hover {
+  background-color: #0069d9;
+}
+
+.practice-mode-result-btn {
+  background-color: #28a745 !important;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f0f7ff;
-  border: 1px solid #d0e3ff;
-  border-radius: 6px;
-  padding: 0.75rem;
-  margin-bottom: 1.5rem;
+  gap: 8px;
+  font-weight: 500;
+  position: relative;
+  padding-left: 40px !important;
 }
 
-.ai-match-text {
-  font-size: 0.9rem;
+.practice-mode-result-btn::before {
+  content: "🏋️";
+  font-size: 18px;
+  position: absolute;
+  left: 15px;
 }
 
-.match-actions {
-  display: flex;
-  gap: 1rem;
+.practice-mode-result-btn:hover {
+  background-color: #218838 !important;
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-
-.accept-match-btn, .decline-match-btn {
-  flex: 1;
-  padding: 0.7
